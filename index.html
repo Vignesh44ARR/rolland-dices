@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RollDies</title>
+  </head>
+  <body>
+    <h1>Roll Two Dices</h1>
+    <div class="container">
+      <div class="lef">
+        <center>
+          <img src="https://thumbs.gfycat.com/SecondTartCygnet.webp" alt="" />
+        </center>
+
+        <form action="">
+          <label for="">Player 1 : </label>
+          &nbsp; &nbsp; <label id="num1" for="">0</label> &nbsp; &nbsp; <br />
+          <br />
+          <br />
+          <label for="">Player 2 : </label>
+          &nbsp; &nbsp;<label id="num2" for="">0</label> &nbsp; &nbsp; <br />
+          <br /><br />
+
+          <button onclick=" return roll()">Roll Dice</button>
+          <label id="num3">0</label> <br />
+          <br />
+          <h2 id="res"> Player 1 turns </h2>
+        </form>
+      </div>
+      <div class="rig">
+        <img
+          src="https://cdn2.iconfinder.com/data/icons/board-games-5/66/19-512.png"
+          alt=""
+        />
+      </div>
+      <br /><br /><br />
+    </div>
+  </body>
+</html>
+
+<script>
+
+var p1=0;
+var p2=0;
+var turn=1;
+function roll(){
+
+    if(p1>=30 && p2>=30){
+      if(p1>=30){
+      document.getElementById("res").innerHTML="1st Player Win!";
+      return false
+      }
+      if(p2>=30){
+      document.getElementById("res").innerHTML="2st Player Win!";
+      return false
+    }
+      
+    }
+    else{
+    if(turn%2!=0){
+      document.getElementById("res").innerHTML="Player 1 turn";
+      var s = Math.floor(Math.random() * 7);
+      p1=p1+s
+      document.getElementById("num3").innerHTML=s;
+      document.getElementById("num1").innerHTML=p1;
+    }
+    else{
+      document.getElementById("res").innerHTML="Player 2 turn"
+      var s = Math.floor(Math.random() * 7);
+      p2=p2+s
+      document.getElementById("num3").innerHTML=s;
+      document.getElementById("num2").innerHTML=p2;
+    }
+    turn++;
+  }
+    return false;
+}
+
+
+</script>
+
+
+<style>
+  #num1,
+  #num2 {
+    padding-left: 20px;
+  }
+  label {
+    color: navy;
+    font-size: 19px;
+  }
+  input {
+    border-radius: 6px;
+    font-size: 20px;
+  }
+  .container {
+    background-color: oldlace;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 3% 14% 14% 14%;
+    padding-top: 10px;
+    border: 2px solid black;
+    box-shadow: 3px 4px 3px rgb(145, 116, 116);
+  }
+  #num3 {
+    font-size: 19px;
+    color: green;
+    font-weight: bold;
+    margin-left: 3px;
+  }
+  h2 {
+    color: forestgreen;
+  }
+
+  .lef {
+    text-align: center;
+  }
+
+  button {
+    background-color: gold;
+    color: navy;
+    padding: 5px;
+  }
+
+  .lef img {
+    width: 33%;
+    height: 23%;
+  }
+  .rig img {
+    width: 300x;
+  }
+  h1 {
+    text-align: center;
+    color: rgb(158, 112, 243);
+    text-shadow: 2px 2px 1px rgb(118, 134, 206);
+  }
+  @media only screen and (max-width: 900px) {
+    .rig img {
+      width: 270px;
+      text-align: center;
+      margin-top:8px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    
+    label {
+      font-size: 16px;
+    }
+    .container {
+      grid-template-columns: 1fr;
+    }
+  
+    h2 {
+      font-size: 17px;
+    }
+    .rig {
+      text-align: center;
+    }
+
+    .lef img {
+      width: 43%;
+      height: 33%;
+    }
+    .rig img {
+      width: 140px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 20px;
+    }
+  }
+</style>
