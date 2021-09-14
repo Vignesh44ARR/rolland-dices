@@ -47,7 +47,7 @@ var p2=0;
 var turn=1;
 function roll(){
 
-    if(p1>=30 && p2>=30){
+    if(p1>=30 || p2>=30){
       if(p1>=30){
       document.getElementById("res").innerHTML="1st Player Win!";
       return false
